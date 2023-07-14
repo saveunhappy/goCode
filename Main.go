@@ -1,11 +1,8 @@
 package main
 
-import "fmt"
-
-func Hello() string {
-	return "hello world"
+func Hello(name string) string {
+	return name
 }
 
 func main() {
-	fmt.Println(Hello())
 }
