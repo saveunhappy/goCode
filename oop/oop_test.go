@@ -2,8 +2,14 @@ package oop
 
 import "testing"
 
+type Rectangle struct {
+	Width  float64
+	Height float64
+}
+
 func TestPerimeter(t *testing.T) {
-	got := Perimeter(10.0, 10.0)
+	rectangle := Rectangle{10.0, 10.0}
+	got := Perimeter(rectangle)
 	want := 40.0
 
 	if got != want {
@@ -12,7 +18,8 @@ func TestPerimeter(t *testing.T) {
 }
 
 func TestArea(t *testing.T) {
-	got := Area(12.0, 6.0)
+	rectangle := Rectangle{12.0, 6.0}
+	got := Area(rectangle)
 	want := 72.0
 
 	if got != want {
@@ -20,10 +27,10 @@ func TestArea(t *testing.T) {
 	}
 }
 
-func Area(width float64, height float64) float64 {
-	return width * height
+func Perimeter(rectangle Rectangle) float64 {
+	return 2 * (rectangle.Width + rectangle.Height)
 }
 
-func Perimeter(width float64, height float64) float64 {
-	return 2 * (width + height)
+func Area(rectangle Rectangle) float64 {
+	return rectangle.Width * rectangle.Height
 }
