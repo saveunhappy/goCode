@@ -85,3 +85,22 @@ func SumAll(numbersToSum ...[]int) []int {
 
 	return sums
 }
+
+func TestSumAllTails(t *testing.T) {
+
+	got := SumAllTails([]int{1, 2}, []int{0, 9})
+	want := []int{2, 9}
+
+	if !reflect.DeepEqual(got, want) {
+		t.Errorf("got %v want %v", got, want)
+	}
+}
+func SumAllTails(numbersToSum ...[]int) []int {
+	var sums []int
+	for _, numbers := range numbersToSum {
+		tail := numbers[1:]
+		sums = append(sums, Sum(tail))
+	}
+
+	return sums
+}
