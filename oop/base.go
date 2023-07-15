@@ -29,13 +29,13 @@ func (c Circle) Area() float64 {
 }
 
 type Triangle struct {
-	Width  float64
+	Base   float64
 	Height float64
 }
 
 // Area returns the area of the circle.
 func (c Triangle) Area() float64 {
-	return c.Width * c.Height / 2
+	return c.Base * c.Height / 2
 }
 
 type Shape interface {
