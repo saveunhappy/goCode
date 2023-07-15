@@ -1,6 +1,9 @@
 package main
 
-import "testing"
+import (
+	"reflect"
+	"testing"
+)
 
 //func TestSum(t *testing.T) {
 //
@@ -53,4 +56,24 @@ func Sum(numbers []int) int {
 		sum += number
 	}
 	return sum
+}
+func TestSumAll(t *testing.T) {
+
+	got := SumAll([]int{1, 2}, []int{0, 9})
+	want := []int{3, 9}
+
+	if !reflect.DeepEqual(got, want) {
+		t.Errorf("got %v want %v", got, want)
+	}
+}
+
+func SumAll(numbersToSum ...[]int) []int {
+	//lengthOfNumbers := len(numbersToSum)
+	sums := make([]int, len(numbersToSum))
+
+	for i, numbers := range numbersToSum {
+		sums[i] = Sum(numbers)
+	}
+
+	return sums
 }
