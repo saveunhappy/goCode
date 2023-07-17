@@ -1,16 +1,15 @@
 package pointeranderror
 
-// Deposit 定金
-func (w *Wallet) Deposit(amount int) {
+type Bitcoin int
+
+type Wallet struct {
+	balance Bitcoin
+}
+
+func (w *Wallet) Deposit(amount Bitcoin) {
 	w.balance += amount
 }
 
-// Balance 结余
-
-func (w *Wallet) Balance() int {
+func (w *Wallet) Balance() Bitcoin {
 	return w.balance
-}
-
-type Wallet struct {
-	balance int
 }
