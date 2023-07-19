@@ -1,8 +1,9 @@
-package mocking
+package main
 
 import (
 	"fmt"
 	"io"
+	"os"
 	"time"
 )
 
@@ -34,4 +35,9 @@ type DefaultSleeper struct{}
 
 func (d *DefaultSleeper) Sleep() {
 	time.Sleep(1 * time.Second)
+}
+
+func main() {
+	sleeper := &DefaultSleeper{}
+	Countdown(os.Stdout, sleeper)
 }
